@@ -40,7 +40,7 @@ export function Hero() {
           {c.hero.eyebrow}
         </p>
 
-        <h1 className="t-display mx-auto mt-5 max-w-5xl">
+        <h1 className="t-display mx-auto mt-5 max-w-6xl">
           {c.hero.titleLines.map((line, i) => (
             <span key={line} className="line-mask intro-line" style={{ '--i': i + 1 } as CSSProperties}>
               <span className={i === 0 ? 'text-white/65' : 'text-white'}>{line}</span>

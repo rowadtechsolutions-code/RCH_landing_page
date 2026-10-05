@@ -32,7 +32,7 @@ RCH_landing_page/
       Brand/  Button/  Header/  Footer/  BrowserFrame/  Badge/  Reveal/  FlowLine/
       product/               UI fragments: FleetPane, ContractPane, PaymentsPane, CalcPane, ReportPane
     sections/
-      Hero/  Problem/  ProductStory/  FleetControl/  Accounts/  FinalCta/
+      Hero/  Problem/  ProductStory/  FleetControl/  FinalCta/
     styles/                  tokens.css, globals.css
 ```
 
@@ -45,7 +45,7 @@ No animation library: IntersectionObserver for reveals, one rAF-throttled scroll
 3. **The problem** (light, editorial, sticky on desktop) — "Excel · واتساب · الدفاتر · ملفات · حسابات يدوية" scattered as real-looking scraps → on scroll they converge into one RCH line: «مع RCH، كل شيء أوضح».
 4. **Product story** (sticky split) — 01 الأسطول → 02 العقود → 03 التمديد والدفعات → 04 العمولات والمستحقات → 05 التقارير. Text scrolls, one framed product surface stays and morphs between panes; progress rail. Mobile: stacked chapters, each with its own pane.
 5. **Fleet control** — «كل تفاصيل أسطولك تحت السيطرة»: a fleet timeline (cars × days) that slides horizontally with scroll; contracts never overlap, open contracts run to the edge, extensions in orange, overdue in rose.
-6. **Accounts & access** — each account sees only its data; admin enable/disable shown as a working toggle.
+6. **About RCH** — developed and supported by Rowad Technical Solutions.
 7. **Final CTA** (dark, mirrors the hero) — «جاهز تدير مكتبك بطريقة أسهل؟» + WhatsApp CTA, roof line drawing itself.
 8. **Footer** — logo, anchors, real contact, developer credit, ©.
 
