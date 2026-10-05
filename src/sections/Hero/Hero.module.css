@@ -1,0 +1,54 @@
+/* The dark stage ends behind the product frame: the frame's lower part rests on the light canvas
+   of the next section, so the hero hands over to the story without a hard edge. */
+.hero {
+  background: linear-gradient(
+    to bottom,
+    var(--color-night) 0,
+    var(--color-night-2) calc(100% - clamp(110px, 20vw, 290px)),
+    var(--color-canvas) calc(100% - clamp(110px, 20vw, 290px))
+  );
+}
+
+.glow {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 900px;
+  background:
+    radial-gradient(60% 55% at 50% 0%, rgb(37 99 235 / 0.32), transparent 70%),
+    radial-gradient(30% 30% at 50% 62%, rgb(53 112 216 / 0.14), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.roof {
+  position: absolute;
+  inset-inline: 0;
+  top: 120px;
+  width: 100%;
+  height: 520px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.stageWrap {
+  padding-bottom: clamp(24px, 4vw, 56px);
+}
+
+/* Tilted while it rises; flat by the time it reaches the middle of the screen. */
+.stage {
+  --t: clamp(0, (0.85 - var(--p, 1)) / 0.55, 1);
+  transform-origin: 50% 0;
+  transform: perspective(1800px) rotateX(calc(var(--t) * 16deg)) scale(calc(1 - var(--t) * 0.05));
+  will-change: transform;
+}
+
+.floater {
+  transform: translate3d(0, calc((1 - var(--p, 1)) * var(--depth, 1) * 56px), 0);
+  will-change: transform;
+}
+
+@media (max-width: 767px) {
+  .floater {
+    transform: scale(0.86);
+  }
+}

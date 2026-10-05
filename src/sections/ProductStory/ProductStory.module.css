@@ -1,0 +1,52 @@
+/* Chapter text: incoming rises, outgoing lifts away. Only transform + opacity. */
+.chapter {
+  opacity: 0;
+  transform: translate3d(0, 36px, 0);
+  transition:
+    opacity 500ms var(--ease-out-soft),
+    transform 700ms var(--ease-out-soft);
+  pointer-events: none;
+}
+
+.chapterPast {
+  transform: translate3d(0, -36px, 0);
+}
+
+.chapterIn {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  transition-delay: 120ms;
+}
+
+/* Product panes inside the pinned frame: the surface "turns the page" between chapters. */
+.paneBox {
+  height: min(540px, calc(100vh - 230px));
+  min-height: 470px;
+  background: var(--color-canvas);
+  overflow: hidden;
+}
+
+.pane {
+  opacity: 0;
+  transform: translate3d(0, 6%, 0) scale(0.98);
+  transition:
+    opacity 450ms var(--ease-out-soft),
+    transform 800ms var(--ease-out-soft);
+}
+
+.panePast {
+  transform: translate3d(0, -6%, 0) scale(0.98);
+}
+
+.paneIn {
+  opacity: 1;
+  transform: none;
+  transition-delay: 80ms;
+}
+
+.paneBoxStacked {
+  background: var(--color-canvas);
+  min-height: 440px;
+  position: relative;
+}

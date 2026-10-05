@@ -1,0 +1,22 @@
+.section {
+  /* The glide happens while the middle of the section crosses the viewport. */
+  --g: clamp(0, (var(--p, 0) - 0.22) / 0.5, 1);
+}
+
+.glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(50% 40% at 50% 0%, rgb(37 99 235 / 0.22), transparent 70%);
+  pointer-events: none;
+}
+
+.viewport {
+  scrollbar-width: thin;
+}
+
+/* RTL: the timeline starts on the right, so it glides towards +x to reveal later days; LTR the opposite. */
+.glide {
+  width: max-content;
+  transform: translate3d(calc(var(--sign, -1) * var(--g) * var(--overflow, 0px)), 0, 0);
+  will-change: transform;
+}

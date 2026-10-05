@@ -1,0 +1,53 @@
+/*
+ * Pinned problem → answer. --p (0..1) comes from the section's scroll progress.
+ *   --k: convergence of the scraps into the record (0 = scattered, 1 = merged)
+ *   --q: fade-out of the problem headline, slightly ahead of the convergence
+ */
+.pinned {
+  height: 300vh;
+  --k: clamp(0, (var(--p, 0) - 0.3) / 0.38, 1);
+  --q: clamp(0, (var(--p, 0) - 0.2) / 0.25, 1);
+  --a: clamp(0, (var(--p, 0) - 0.55) / 0.2, 1);
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.before {
+  opacity: calc(1 - var(--q));
+  transform: translate3d(0, calc(var(--q) * -40px), 0);
+}
+
+.scrap {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  translate: -50% -50%;
+  transform: translate3d(calc(var(--x) * (1 - var(--k))), calc(var(--y) * (1 - var(--k)) + var(--p, 0) * -30px), 0)
+    rotate(calc(var(--r) * (1 - var(--k)))) scale(calc(1 - var(--k) * 0.55));
+  opacity: calc(1 - var(--k) * var(--k));
+  will-change: transform, opacity;
+}
+
+.after {
+  opacity: var(--a);
+  transform: translate3d(0, calc((1 - var(--a)) * 40px), 0);
+  pointer-events: none;
+}
+
+.record {
+  transform: scale(calc(0.9 + var(--a) * 0.1));
+  transform-origin: 50% 0;
+}
+
+.tilt:nth-child(odd) > * {
+  rotate: -1.5deg;
+}
+
+.tilt:nth-child(even) > * {
+  rotate: 1.5deg;
+}

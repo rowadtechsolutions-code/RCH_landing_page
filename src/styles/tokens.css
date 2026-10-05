@@ -1,0 +1,68 @@
+/*
+ * RCH design tokens. Colours come from the logo and the product app (src/styles.css in the app):
+ * brand blue, the logo's orange arc, the app's neutral canvas, and a deep night for the stage sections.
+ */
+@theme {
+  --font-sans: 'IBM Plex Sans Arabic', ui-sans-serif, system-ui, 'Segoe UI', Tahoma, sans-serif;
+
+  /* Brand */
+  --color-brand: #2563eb;
+  --color-brand-strong: #1d4ed8;
+  --color-brand-logo: #3570d8;
+  --color-brand-soft: #dbe7ff;
+  --color-accent: #f59e0b;
+
+  /* Stage (dark sections) */
+  --color-night: #060a13;
+  --color-night-2: #0b1324;
+  --color-night-line: rgb(255 255 255 / 0.09);
+
+  /* Light sections — same neutrals as the app */
+  --color-canvas: #f6f6f4;
+  --color-surface: #ffffff;
+  --color-sunken: #fafaf9;
+  --color-line: #e8e7e3;
+  --color-line-strong: #d7d5cf;
+  --color-ink: #18181b;
+  --color-ink-soft: #3f3f46;
+  --color-muted: #71717a;
+  --color-faint: #a1a1aa;
+
+  /* Radius */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* Elevation: two levels only */
+  --shadow-soft: 0 1px 2px 0 rgb(24 24 27 / 0.05), 0 8px 24px -16px rgb(24 24 27 / 0.18);
+  --shadow-float: 0 30px 60px -24px rgb(6 10 19 / 0.45), 0 10px 20px -10px rgb(6 10 19 / 0.25);
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Breakpoints (Tailwind defaults kept; 'xs' added for 390px phones) */
+  --breakpoint-xs: 390px;
+}
+
+:root {
+  --gutter: 16px;
+  --section-y: clamp(96px, 14vw, 180px);
+  --header-h: 64px;
+  --dur-fast: 240ms;
+  --dur-base: 600ms;
+  --dur-slow: 900ms;
+  --stagger: 90ms;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 32px;
+    --header-h: 72px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --gutter: 48px;
+  }
+}
